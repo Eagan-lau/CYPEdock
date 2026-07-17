@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Environments and editors
+.venv/
+.venv-*/
+venv/
+.env
+.idea/
+.vscode/
+*.swp
+.DS_Store
+.agents/
+.codex/
+
+# Generated datasets, predictions and training runs
+data/
+outputs/
+predictions/
+runs/
+checkpoints/
+workspace/outputs/*
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.ckpt.index
+*.ckpt.data-*
+events.out.tfevents.*
+
+# Keep the frozen CYPocket regression arrays in the public verification fixture.
+!CYPocket/p450pocket/verification/**/*.npy
+
+# Large scientific assets are distributed separately. Keep local copies in
+# place while tracking only their documentation and lightweight CYPocket files.
+/CYP450_foldseek_db/*
+!/CYP450_foldseek_db/README.md
+/CYP450_foldseek_db.tar.xz
+/CYPocket/P450model/*.pth
+/CYPocket/P450model.tar.xz
+/P450model.tar.xz
+
+# Keep the output directory documented without committing generated runs.
+!workspace/outputs/
+!workspace/outputs/README.md

@@ -1,0 +1,10 @@
+include README.md
+include CITATION.cff
+include THIRD_PARTY_NOTICES.md
+include VERIFICATION.md
+include setup.py
+include configs/default.yaml
+recursive-include examples *.smi
+recursive-include licenses *.txt
+recursive-include tests *.py
+recursive-include src/cypedock/resources *

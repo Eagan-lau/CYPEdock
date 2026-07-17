@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "component": "AutoDock Vina",
+  "version": "1.2.3",
+  "platform": "linux-x86_64",
+  "sha256": "04a665729f86cee39e0c18fdbc397a85bda24e81b76685ed6d3e3beec405aa0c",
+  "size_bytes": 4979416,
+  "linkage": "static",
+  "modified": false,
+  "license": "Apache-2.0",
+  "upstream_repository": "https://github.com/ccsb-scripps/AutoDock-Vina",
+  "upstream_tag": "v1.2.3",
+  "binary_origin": "development workstation copy, byte-identical to the official release asset",
+  "upstream_release_asset_url": "https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.3/vina_1.2.3_linux_x86_64",
+  "upstream_release_asset_id": 48929808,
+  "verification_date": "2026-07-16",
+  "verification_method": "SHA-256 and byte-size comparison with the official GitHub release asset",
+  "release_status": "verified official upstream release asset"
+}

@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cypocket"
+version = "0.1.0"
+description = "Reproducible residue-level pocket prediction for cytochrome P450 proteins"
+readme = "README.md"
+requires-python = ">=3.9,<3.10"
+authors = [
+  { name = "CYPocket contributors" },
+]
+keywords = ["cytochrome-p450", "protein", "binding-pocket", "bert", "pocketminer"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+  "biopython==1.85",
+  "numpy==1.19.5",
+  "scikit-learn==1.0.2",
+  "scipy==1.7.3",
+  "torch==1.13.0",
+  "transformers==4.45.2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7,<9"]
+
+[project.scripts]
+cypocket-train = "train:main"
+cypocket-predict = "predict:main"
+cypocket-evaluate = "evaluate:main"
+cypocket-extract-features = "extract_features:main"
+cypocket-prepare-dataset = "prepare_dataset:main"
+cypocket-predict-pdb = "predict_pdb:main"
+
+[tool.setuptools]
+include-package-data = true
+py-modules = [
+  "train",
+  "predict",
+  "evaluate",
+  "extract_features",
+  "prepare_dataset",
+  "predict_pdb",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["p450pocket*"]
+exclude = ["src*", "tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,48 @@
+nohup: ignoring input
+/home/yugengliu/anaconda3/envs/unimol/lib/python3.8/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+train_bert2.py:180: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
+2025-09-17 15:30:29 Epoch 1/300
+Train Loss: 0.4753, Accuracy: 0.7947, Precision: 0.5832, Recall: 0.1234, F1: 0.2037
+Val Loss: 0.4912, Accuracy: 0.7833, Precision: 0.6741, Recall: 0.0725, F1: 0.1309
+New best model saved with F1: 0.1309
+2025-09-17 15:40:31 Epoch 2/300
+Train Loss: 0.4558, Accuracy: 0.7995, Precision: 0.6011, Recall: 0.1707, F1: 0.2659
+Val Loss: 0.4611, Accuracy: 0.7922, Precision: 0.6266, Recall: 0.1908, F1: 0.2925
+New best model saved with F1: 0.2925
+2025-09-17 15:50:19 Epoch 3/300
+Train Loss: 0.4434, Accuracy: 0.8038, Precision: 0.6123, Recall: 0.2116, F1: 0.3145
+Val Loss: 0.4641, Accuracy: 0.7937, Precision: 0.6961, Recall: 0.1481, F1: 0.2443
+2025-09-17 16:00:02 Epoch 4/300
+Train Loss: 0.4345, Accuracy: 0.8074, Precision: 0.6239, Recall: 0.2381, F1: 0.3447
+Val Loss: 0.5103, Accuracy: 0.7919, Precision: 0.7388, Recall: 0.1167, F1: 0.2016
+2025-09-17 16:09:47 Epoch 5/300
+Train Loss: 0.4296, Accuracy: 0.8092, Precision: 0.6280, Recall: 0.2526, F1: 0.3603
+Val Loss: 0.5119, Accuracy: 0.7896, Precision: 0.7714, Recall: 0.0927, F1: 0.1655
+2025-09-17 16:19:32 Epoch 6/300
+Train Loss: 0.4258, Accuracy: 0.8106, Precision: 0.6319, Recall: 0.2625, F1: 0.3709
+Val Loss: 0.5009, Accuracy: 0.7891, Precision: 0.7516, Recall: 0.0943, F1: 0.1676
+Epoch 00006: reducing learning rate of group 0 to 5.0000e-06.
+2025-09-17 16:29:17 Epoch 7/300
+Train Loss: 0.4210, Accuracy: 0.8129, Precision: 0.6379, Recall: 0.2790, F1: 0.3882
+Val Loss: 0.5252, Accuracy: 0.7845, Precision: 0.8271, Recall: 0.0540, F1: 0.1015
+2025-09-17 16:39:01 Epoch 8/300
+Train Loss: 0.4194, Accuracy: 0.8139, Precision: 0.6394, Recall: 0.2871, F1: 0.3963
+Val Loss: 0.4955, Accuracy: 0.7888, Precision: 0.7837, Recall: 0.0857, F1: 0.1544
+2025-09-17 16:48:43 Epoch 9/300
+Train Loss: 0.4176, Accuracy: 0.8145, Precision: 0.6411, Recall: 0.2911, F1: 0.4004
+Val Loss: 0.5172, Accuracy: 0.7875, Precision: 0.8412, Recall: 0.0690, F1: 0.1276
+2025-09-17 16:58:27 Epoch 10/300
+Train Loss: 0.4165, Accuracy: 0.8150, Precision: 0.6422, Recall: 0.2950, F1: 0.4042
+Val Loss: 0.5055, Accuracy: 0.7871, Precision: 0.7991, Recall: 0.0724, F1: 0.1328
+Epoch 00010: reducing learning rate of group 0 to 2.5000e-06.
+2025-09-17 17:08:10 Epoch 11/300
+Train Loss: 0.4135, Accuracy: 0.8165, Precision: 0.6456, Recall: 0.3051, F1: 0.4143
+Val Loss: 0.4816, Accuracy: 0.7925, Precision: 0.7871, Recall: 0.1073, F1: 0.1888
+2025-09-17 17:17:54 Epoch 12/300
+Train Loss: 0.4127, Accuracy: 0.8170, Precision: 0.6466, Recall: 0.3079, F1: 0.4172
+Val Loss: 0.4996, Accuracy: 0.7907, Precision: 0.8141, Recall: 0.0909, F1: 0.1635
+Early stopping triggered!
+Final model saved as '/media/yugengliu/DATA/whli/P450_model/Gener_model/final_protein_distilbert_classifier.pth'
+Training log saved as '/media/yugengliu/DATA/whli/P450_model/Gener_model/training_log.csv'

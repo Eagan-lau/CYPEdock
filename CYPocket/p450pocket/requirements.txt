@@ -1,0 +1,5 @@
+# Default installation target: PyTorch classification, evaluation and training.
+# Raw-PDB feature extraction uses requirements-features.txt.  A deliberately
+# combined two-process inference environment is available in
+# requirements-inference.txt; the default training environment excludes TF.
+-r requirements-classifier.txt

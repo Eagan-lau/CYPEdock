@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Environments and editors
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Generated datasets, predictions and training runs
+data/
+outputs/
+predictions/
+runs/
+checkpoints/
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.ckpt.index
+*.ckpt.data-*
+events.out.tfevents.*
+
+# Keep the small frozen regression arrays; generated runs remain ignored.
+!verification/regression_v1/expected/*.npy
+verification/latest_run/

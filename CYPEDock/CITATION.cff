@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use CYPEdock, cite this software and the component methods."
+title: "CYPEdock: local-site-guided cytochrome P450 ensemble docking"
+type: software
+version: 0.1.0
+date-released: 2026-07-16
+authors:
+  - name: "CYPEdock contributors"
+keywords:
+  - cytochrome P450
+  - ensemble docking
+  - pocket prediction
+  - Foldseek
+  - AutoDock Vina

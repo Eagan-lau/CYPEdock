@@ -1,0 +1,9 @@
+# Audited compatibility environment for the existing P450 classifier weights.
+# Use Python 3.9.9.  Install this file in an environment separate from TensorFlow.
+numpy==1.19.5
+scipy==1.7.3
+scikit-learn==1.0.2
+biopython==1.85
+torch==1.13.0
+transformers==4.45.2
+

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-07-15",
+  "production_retraining_performed": false,
+  "dataset_audit": {
+    "root": "<external_dataset_root>",
+    "n_anomalies": 0,
+    "totals": {
+      "n_proteins": 11933,
+      "n_residues": 5252969,
+      "n_positive": 528989,
+      "positive_fraction": 0.10070285965898523
+    },
+    "splits": {
+      "train": {
+        "n_proteins": 8353,
+        "n_residues": 3673277,
+        "n_positive": 370454,
+        "positive_fraction": 0.10085109290696019,
+        "length_min": 56,
+        "length_median": 456,
+        "length_mean": 439.7554,
+        "length_max": 607
+      },
+      "val": {
+        "n_proteins": 2386,
+        "n_residues": 1049891,
+        "n_positive": 105453,
+        "positive_fraction": 0.10044185539260743,
+        "length_min": 61,
+        "length_median": 457,
+        "length_mean": 440.0214,
+        "length_max": 590
+      },
+      "test": {
+        "n_proteins": 1194,
+        "n_residues": 529801,
+        "n_positive": 53082,
+        "positive_fraction": 0.10019233636780603,
+        "length_min": 46,
+        "length_median": 458,
+        "length_mean": 443.7194,
+        "length_max": 588
+      }
+    },
+    "validated_contract": "tokens=float32[L,100], labels=int64[L] in {0,1}, IDs and lengths paired"
+  },
+  "checkpoints": {
+    "classifier_best_sha256": "548135d13a62b0d9ce9fa925563f8a52b2f61f18271f599c5eec41a6e1596690",
+    "classifier_final_sha256": "b48376590f532bcaaaf449a56e34fe219de1f1dc97bed31b6c30a176e7a2344d",
+    "pocketminer_index_sha256": "09e36a62a987b14bc49cf7a1fa53fa734f85d85d088777f98c6aca253b47bf46",
+    "pocketminer_data_sha256": "6f5ab62b9fb38b54040053ac321f3362d616bae9b31569249a032dbb50890b70",
+    "pocketminer_composite_sha256": "c3e659f33b8caf4fd1c2a79ca8f9b24a106628d81296a5fcc877ae3801512c56"
+  },
+  "real_sample_regression": {
+    "sample_id": "AF-A0A010RW94-F1-model_v4",
+    "protein_sha256": "15e2dacf07ea975f91ecd94727a0ad5b2a0456285ec0c13f924d933ad27e5f10",
+    "n_residues": 436,
+    "n_reference_positive_labels": 36,
+    "n_predicted_positive": 71,
+    "feature_shape": [436, 100],
+    "refactored_feature_sha256": "8a7818963fc6877ad53b5ca0b06e5fb8b6456d6cbe698d27bff4254b7e770f62",
+    "same_environment_legacy_feature_sha256": "8a7818963fc6877ad53b5ca0b06e5fb8b6456d6cbe698d27bff4254b7e770f62",
+    "archived_feature_sha256": "5a5dab1a01e46fe0a9469619898ed0460092eca221a7b4b43eb7c54e44455b79",
+    "refactored_equals_same_environment_legacy_bitwise": true,
+    "refactored_equals_raw_prepare_output_bitwise": true,
+    "refactored_vs_archived_feature_max_abs": 0.0005779266357421875,
+    "refactored_vs_archived_feature_mean_abs": 0.000008060303116508294,
+    "refactored_vs_archived_feature_rmse": 0.00001899225389934145,
+    "prepared_label_sha256": "1d32515f9997c3e0fb253000d0a3a6d92f2317ff2f8ccbab55ee1f9c03f281a6",
+    "archived_label_sha256": "1d32515f9997c3e0fb253000d0a3a6d92f2317ff2f8ccbab55ee1f9c03f281a6",
+    "prepared_labels_equal_archived_bitwise": true,
+    "end_to_end_prediction_sha256": "7222e8b66a609dbe3f6b7887753b0afc4496b943ed8b8939f139a857219f5b8a",
+    "end_to_end_labels_equal_archived_feature_labels": true,
+    "end_to_end_vs_archived_feature_probability_max_abs": 0.00001862645149230957,
+    "end_to_end_vs_archived_feature_probability_mean_abs": 0.000001094734557227639,
+    "pytorch_1_13_vs_2_1_labels_equal": true,
+    "pytorch_1_13_vs_2_1_probability_max_abs": 5.960464477539062e-7,
+    "pytorch_1_13_vs_2_1_probability_mean_abs": 4.0212619012436335e-8
+  },
+  "artifacts": {
+    "fixture_sha256s_sha256": "349bdd0638b615c5e82095aad08cd5e2af075f89466e472cc8a57eac81c9783a",
+    "expected_feature_sha256": "8a7818963fc6877ad53b5ca0b06e5fb8b6456d6cbe698d27bff4254b7e770f62",
+    "expected_label_sha256": "1d32515f9997c3e0fb253000d0a3a6d92f2317ff2f8ccbab55ee1f9c03f281a6",
+    "expected_prediction_sha256": "7222e8b66a609dbe3f6b7887753b0afc4496b943ed8b8939f139a857219f5b8a",
+    "expected_probability_sha256": "684d2e424bc79fd2a40132c78b8aaf71b5dbdd4a8a68bc60514b447e64138f39"
+  },
+  "environments": {
+    "original_training": "Python 3.8.19, PyTorch 2.1.0+cu121, Transformers 4.46.2",
+    "verified_combined_inference": "Python 3.9.9, PyTorch 1.13.0, Transformers 4.45.2, TensorFlow 2.6.2, NumPy 1.19.5",
+    "feature_device": "CPU"
+  },
+  "automated_tests": {
+    "python": "3.8.19",
+    "passed": 19,
+    "failed": 0,
+    "warning": "one benign PyTorch TypedStorage deprecation warning"
+  },
+  "packaging": {
+    "distribution_name": "cypocket",
+    "wheel_build_succeeded": true,
+    "wheel_sha256": "9bc511c7a52ec8b0975dab0472c916166b597dbb68383db799e4112c9b488004",
+    "installed_wheel_end_to_end_inference_succeeded": true,
+    "source_package_self_contained_regression_succeeded": true,
+    "model_artifacts_external_to_wheel": true
+  },
+  "not_claimed": [
+    "No real-data retraining or hyperparameter tuning was performed.",
+    "Historical test/pred files were not treated as provenance-bearing output.",
+    "A formal frozen-test performance table was not generated during refactoring.",
+    "The raw checkpoints do not cryptographically prove their dataset-manifest association.",
+    "Checkpoint redistribution permission remains to be confirmed."
+  ]
+}

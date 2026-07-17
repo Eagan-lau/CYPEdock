@@ -1,0 +1,67 @@
+project:
+  random_seed: 20260716
+
+input:
+  chain: null
+
+reference:
+  protein_chain: null
+  cofactor_residues: []
+
+alignment:
+  local_shell_radius_angstrom: 10.0
+  local_rmsd_cutoff_angstrom: 2.5
+  minimum_local_residues: 8
+  minimum_local_coverage: 0.60
+  minimum_sequence_identity: 0.20
+  minimum_sequence_coverage: 0.50
+  alignment_atoms: [N, CA, C]
+  maximum_local_residue_rmsd_angstrom: 4.0
+  cofactor_clash_distance_angstrom: 1.20
+  require_proximal_cysteine: true
+  minimum_fe_s_distance_angstrom: 1.80
+  maximum_fe_s_distance_angstrom: 3.00
+
+foldseek:
+  enabled: true
+  executable: foldseek
+  library_root: null
+  database_prefix: null
+  structure_root: null
+  maximum_hits: 20
+  minimum_alignment_tm_score: 0.50
+  minimum_query_coverage: 0.60
+  threads: 8
+
+cypocket:
+  python: null
+  root: null
+  feature_python: null
+  classifier_python: null
+  pocketminer_checkpoint: null
+  classifier_checkpoint: null
+  classifier_cuda_visible_devices: ""
+  device: cpu
+  threshold: null
+
+box:
+  auto_size: false
+  center_atoms: CA
+  size_angstrom: [25.0, 25.0, 25.0]
+  maximum_size_angstrom: [40.0, 40.0, 40.0]
+  pocket_padding_angstrom: 4.0
+  minimum_fe_margin_angstrom: 2.0
+
+ligand:
+  embedding_attempts: 1000
+  optimization_iterations: 1000
+
+docking:
+  vina_executable: null
+  exhaustiveness: 8
+  num_modes: 9
+  energy_range: 3
+  replicates: 1
+  workers: 1
+  cpu_per_task: 1
+  timeout_seconds: 3600

@@ -1,0 +1,7 @@
+# Single-environment CPU/GPU inference.  predict_pdb.py still launches feature
+# extraction and classification in separate processes, so TensorFlow cannot
+# retain classifier-process GPU memory.
+-r requirements-classifier.txt
+tensorflow==2.6.2
+keras==2.6.0
+protobuf==3.18.1

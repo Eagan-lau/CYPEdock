@@ -1,0 +1,134 @@
+{
+  "architecture": {
+    "attention_probs_dropout_prob": 0.1,
+    "bert_pooler_present": true,
+    "chunk_size": 512,
+    "compatibility_mode": "legacy-v1",
+    "feature_dim": 100,
+    "feature_projection": "Linear(100, 768)",
+    "hidden_dropout_prob": 0.1,
+    "hidden_size": 768,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 512,
+    "name": "bert-base-residue-classifier",
+    "num_attention_heads": 12,
+    "num_hidden_layers": 12,
+    "num_labels": 2,
+    "output_classifier": "Linear(768, 2)"
+  },
+  "checkpoints": [
+    {
+      "default_for_inference": true,
+      "epoch": 373,
+      "file": "best_protein_distilbert_classifier.pth",
+      "format": "raw_pytorch_state_dict",
+      "parameter_count": 109561346,
+      "role": "best_validation_f1_checkpoint",
+      "sha256": "548135d13a62b0d9ce9fa925563f8a52b2f61f18271f599c5eec41a6e1596690",
+      "size_bytes": 438333361,
+      "tensor_count": 203,
+      "validation_f1": 0.7435
+    },
+    {
+      "default_for_inference": false,
+      "epoch": 400,
+      "file": "final_protein_distilbert_classifier.pth",
+      "format": "raw_pytorch_state_dict",
+      "parameter_count": 109561346,
+      "role": "final_training_checkpoint",
+      "sha256": "b48376590f532bcaaaf449a56e34fe219de1f1dc97bed31b6c30a176e7a2344d",
+      "size_bytes": 438333568,
+      "tensor_count": 203,
+      "validation_f1": 0.7421
+    }
+  ],
+  "compatibility": {
+    "biopython": "1.85",
+    "numpy": "1.19.5",
+    "python": "3.9.9",
+    "scikit_learn": "1.0.2",
+    "torch": "1.13.0",
+    "transformers": "4.45.2"
+  },
+  "decision": {
+    "class_index": {
+      "non_pocket": 0,
+      "pocket": 1
+    },
+    "default_rule": "argmax",
+    "reported_probability": "softmax(logits)[..., 1]",
+    "threshold_equivalent_except_exact_logit_ties": 0.5
+  },
+  "default_checkpoint": "best_protein_distilbert_classifier.pth",
+  "feature_extractor": {
+    "architecture": "PocketMiner/GVP",
+    "checkpoint_available_in_repository": true,
+    "checkpoint_composite_sha256": "c3e659f33b8caf4fd1c2a79ca8f9b24a106628d81296a5fcc877ae3801512c56",
+    "checkpoint_files": [
+      {
+        "file": "pocketminer.index",
+        "sha256": "09e36a62a987b14bc49cf7a1fa53fa734f85d85d088777f98c6aca253b47bf46",
+        "size_bytes": 36666
+      },
+      {
+        "file": "pocketminer.data-00000-of-00001",
+        "sha256": "6f5ab62b9fb38b54040053ac321f3362d616bae9b31569249a032dbb50890b70",
+        "size_bytes": 8933112
+      }
+    ],
+    "checkpoint_prefix": "pocketminer",
+    "checkpoint_requirement": "TensorFlow checkpoint prefix with matching .index and .data-* files",
+    "environment": {
+      "keras": "2.6.0",
+      "mdtraj": "1.9.7",
+      "numpy": "1.19.5",
+      "python": "3.9.9",
+      "scipy": "1.7.3",
+      "tensorflow": "2.6.2"
+    },
+    "output_dtype": "float32",
+    "output_shape": "[number_of_residues, 100]",
+    "recommended_device": "cpu",
+    "status": "available_and_end_to_end_verified",
+    "verification": {
+      "classifier_labels_match_historical_feature_inference": true,
+      "legacy_feature_implementation_bitwise_equal": true,
+      "prepared_labels_match_existing_labels": true,
+      "sample_id": "AF-A0A010RW94-F1-model_v4"
+    }
+  },
+  "input": {
+    "chunking": "independent_non_overlapping_windows",
+    "dtype": "float32",
+    "position_indices_reset_each_chunk": true,
+    "shape": "[batch, number_of_residues, 100]"
+  },
+  "initialization": {
+    "bert_pretrained_requirement": "A compatible local bert-base-uncased directory must be supplied explicitly for de novo training.",
+    "configured_portable_default": null,
+    "local_audit_candidate": null,
+    "local_audit_candidate_is_release_default": false
+  },
+  "name": "P450 residue pocket classifier",
+  "notes": [
+    "The historical filenames contain 'distilbert', but audited parameter names and tensor shapes identify a full 12-layer BERT-base encoder.",
+    "The raw state dictionaries do not embed architecture, threshold, optimizer, dataset, or training-history metadata; those facts must be supplied externally.",
+    "The separate model-level dropout declared by the historical class was not applied in forward; compatibility inference preserves that behavior.",
+    "The supplied training log supports checkpoint selection at epoch 373, but the raw state dictionary does not cryptographically bind itself to a dataset manifest.",
+    "Checkpoint redistribution permission was not encoded or supplied with these files and must be confirmed before public release."
+  ],
+  "provenance": {
+    "checkpoint_selection_metric": "validation_f1",
+    "checkpoint_selection_metric_source": "legacy/train_bert.log:1186-1189,1272-1274",
+    "highest_logged_validation_f1": 0.7435,
+    "highest_logged_validation_f1_epoch": 373,
+    "original_training_environment": {
+      "python": "3.8.19",
+      "torch": "2.1.0+cu121",
+      "transformers": "4.46.2"
+    },
+    "original_training_code_commit": "not recorded",
+    "weights_modified_during_audit": false
+  },
+  "schema_version": 1
+}

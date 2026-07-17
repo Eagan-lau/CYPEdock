@@ -1,0 +1,19 @@
+project:
+  random_seed: 20260716
+
+foldseek:
+  enabled: true
+  executable: /home/yugengliu/protein/foldseek/bin/foldseek
+  library_root: /media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db
+  database_prefix: /media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db/cyp450_holo
+  structure_root: null
+
+cypocket:
+  python: /home/yugengliu/anaconda3/envs/tf/bin/python3.9
+  root: /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+  feature_python: /home/yugengliu/anaconda3/envs/tf/bin/python3.9
+  classifier_python: /home/yugengliu/anaconda3/envs/tf/bin/python3.9
+  pocketminer_checkpoint: /media/yugengliu/DATA2/CYPEDock/CYPocket/P450model/pocketminer
+  classifier_checkpoint: /media/yugengliu/DATA2/CYPEDock/CYPocket/P450model/best_protein_distilbert_classifier.pth
+  classifier_cuda_visible_devices: ""
+  device: cpu
