@@ -473,3 +473,19 @@ stdout, stderr, and task metadata.
 Users should report the effective configuration, CYPEdock version, CYPocket
 checkpoint identity, Foldseek database identity, and Vina version in published
 computational methods.
+
+
+## Data and Model Availability
+
+The data and model checkpoints supporting the article are archived on Zenodo:
+[DOI: 10.5281/zenodo.23439146](https://doi.org/10.5281/zenodo.23439146).
+
+The principal models used in the article are:
+
+| Model | Role |
+|---|---|
+| **CYPocket (GVP + BERT)** | P450 pocket prediction; the deployed best/final classifiers are provided in `P450model.tar.xz`. |
+| **Sequence-only BERT** | Sequence-only ablation model. |
+| **Fixed GVP + MLP** | Structural-feature baseline. |
+| **AlphaFlow** (`alphaflow_12l_md_templates_base_202406.pt`) | Protein conformational ensemble sampling. |
+| **PocketMiner / GVP** | Pretrained structural feature extractor used by CYPocket. |
