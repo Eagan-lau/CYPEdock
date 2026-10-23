@@ -7,9 +7,9 @@ cofactor position, predicts pocket residues with CYPocket, constructs the
 docking box, prepares one or more ligands, and executes AutoDock Vina.
 
 This document describes installation and routine use of the complete project.
-The current workstation checkout is `/media/yugengliu/DATA2/CYPEDock`;
-component-level implementation, training, and validation details are provided
-in the linked manuals.
+Paths beginning with `/path/to/CYPEdock` below are examples; replace this
+prefix with your repository's absolute path. Component-level implementation,
+training, and validation details are provided in the linked manuals.
 
 ## 1. Project Layout
 
@@ -50,10 +50,11 @@ metadata. Two large asset groups are distributed separately:
 - the generated CYP450 Foldseek database; and
 - the two trained CYPocket classifier checkpoints.
 
-Download both archives from:
+Download both archives from the preferred project archive:
 
-- Baidu Netdisk: <https://pan.baidu.com/s/17dh949GLClk_QC1WUDejkw?pwd=7qnp>
-- Extraction code: `7qnp`
+- Preferred source: Zenodo [DOI: 10.5281/zenodo.23439146](https://doi.org/10.5281/zenodo.23439146).
+- Backup mirror: [Baidu Netdisk](https://pan.baidu.com/s/17dh949GLClk_QC1WUDejkw?pwd=7qnp)
+  (extraction code: `7qnp`).
 
 Archive names, SHA-256 checksums, extraction commands, expected paths, and
 validation steps are provided in [ASSETS.md](ASSETS.md). Install these assets
@@ -99,7 +100,7 @@ validated CYPocket TensorFlow and PyTorch dependencies are version constrained.
 Run the following commands from the project root:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock
+cd /path/to/CYPEdock
 
 python3 -m venv .venv-cypedock
 .venv-cypedock/bin/python -m pip install --upgrade pip
@@ -142,7 +143,7 @@ required. End-to-end prediction still requires the dependencies listed in
 Create the validated inference environment:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 conda create --name cypocket-inference --channel conda-forge \
   python=3.9.9 pip=23.2.1 setuptools=68.0.0 wheel=0.41.2 -y
@@ -157,7 +158,7 @@ cypocket-predict-pdb --help
 Keep the released artifacts under:
 
 ```text
-/media/yugengliu/DATA2/CYPEDock/CYPocket/P450model
+/path/to/CYPEdock/CYPocket/P450model
 ```
 
 For a relocated installation, set the model directory explicitly:
@@ -182,25 +183,25 @@ conda create --name cypedock-foldseek \
 conda run --name cypedock-foldseek foldseek version
 ```
 
-The current local library is:
+After extraction, the library directory is:
 
 ```text
-/media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db
+/path/to/CYPEdock/CYP450_foldseek_db
 ```
 
 Its Foldseek database prefix is:
 
 ```text
-/media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db/cyp450_holo
+/path/to/CYPEdock/CYP450_foldseek_db/cyp450_holo
 ```
 
 Validate the database, manifest, template checksums, and identifier mapping:
 
 ```bash
-/media/yugengliu/DATA2/CYPEDock/.venv-cypedock/bin/cypedock \
+/path/to/CYPEdock/.venv-cypedock/bin/cypedock \
   validate-library \
-  --library-root /media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db \
-  --database-prefix /media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db/cyp450_holo
+  --library-root /path/to/CYPEdock/CYP450_foldseek_db \
+  --database-prefix /path/to/CYPEdock/CYP450_foldseek_db/cyp450_holo
 ```
 
 An existing Foldseek executable may be selected in the configuration or with
@@ -280,15 +281,15 @@ are rejected.
 
 ## 9. Configuration
 
-The current workstation configuration is:
+An example configuration is provided at:
 
 ```text
 CYPEDock/configs/workstation.yaml
 ```
 
 It contains the local Foldseek executable, Foldseek library, CYPocket
-interpreter, source root, and model paths for this workstation. Inspect and
-update these paths when the project is relocated.
+interpreter, source root, and model paths for an example installation. Set
+these paths for your own installation before use.
 
 To create a portable configuration template:
 
@@ -326,7 +327,7 @@ Before a production run, verify the effective configuration and all external
 components:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock
+cd /path/to/CYPEdock
 
 .venv-cypedock/bin/cypedock doctor \
   --config CYPEDock/configs/workstation.yaml \
@@ -343,7 +344,7 @@ the context of the intended protein family and structural data quality.
 The repository contains example inputs at the paths used below:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock
+cd /path/to/CYPEdock
 
 .venv-cypedock/bin/cypedock run \
   --ensemble workspace/inputs/conformations \
@@ -442,9 +443,9 @@ top-level `docking/` directory for direct downstream analysis.
 Run the CYPEdock test suite after source modifications:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPEDock
-/media/yugengliu/DATA2/CYPEDock/.venv-cypedock/bin/python -m pip install -e '.[test]'
-/media/yugengliu/DATA2/CYPEDock/.venv-cypedock/bin/python -m pytest -q tests
+cd /path/to/CYPEdock/CYPEDock
+/path/to/CYPEdock/.venv-cypedock/bin/python -m pip install -e '.[test]'
+/path/to/CYPEdock/.venv-cypedock/bin/python -m pytest -q tests
 ```
 
 Useful diagnostic commands are:
