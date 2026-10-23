@@ -28,10 +28,10 @@ three-dimensional ligands with RDKit, and runs AutoDock Vina.
    dock every ligand against every accepted conformation with AutoDock Vina
    1.2.3.
 
-The wheel contains only a versioned library-layout placeholder. The validated
-workstation library is stored externally at
-`/media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db`; it is not copied into the
-wheel because the indexed database is large. The library is self-contained:
+The wheel contains only a versioned library-layout placeholder. The generated
+CYP450 holo library is distributed separately; install it under
+`CYP450_foldseek_db/` in the repository root as described in
+[`../ASSETS.md`](../ASSETS.md). The library is self-contained:
 its holo coordinate files are stored under `templates/` and referenced with
 relative paths. A supplied holo structure is not required when a compatible
 external library is configured.
@@ -86,12 +86,13 @@ coordinate file is verified against its manifest SHA-256 digest. The optional
 `structure_root` setting is retained only for compatibility with legacy
 manifests whose coordinate files are stored outside the library root.
 
-Validate the workstation library before use:
+Validate the downloaded library before use. Replace `/path/to/CYPEdock`
+with your repository's absolute path in the examples below:
 
 ```bash
 cypedock validate-library \
-  --library-root /media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db \
-  --database-prefix /media/yugengliu/DATA2/CYPEDock/CYP450_foldseek_db/cyp450_holo
+  --library-root /path/to/CYPEdock/CYP450_foldseek_db \
+  --database-prefix /path/to/CYPEdock/CYP450_foldseek_db/cyp450_holo
 ```
 
 Set `foldseek.library_root` in the configuration file or pass `--library-root`
@@ -123,8 +124,8 @@ and records the checkpoint hashes in the run manifest.
 
 ## Workspace layout
 
-The source package uses a sibling runtime workspace at
-`/media/yugengliu/DATA2/CYPEDock/workspace`. These locations are recommended
+The source package uses the `workspace/` directory in the repository root,
+a sibling of the `CYPEDock/` source directory. These locations are recommended
 for clarity but are not hard-coded; every CLI path may point to a different
 absolute location.
 
@@ -142,7 +143,8 @@ the protein and its modeled heme-like cofactor in `reference_holo/`. PDB and
 mmCIF are supported, and the cofactor residue name is not required to be
 `HEM`. Auxiliary AF3 confidence and metadata files are not CYPEdock inputs.
 
-An example using the workstation configuration is:
+After setting the tool, library, and model paths in `configs/workstation.yaml`
+for your installation, run from the `CYPEDock/` source directory:
 
 ```bash
 cypedock run \
