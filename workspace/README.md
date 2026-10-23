@@ -1,7 +1,7 @@
 # CYPEdock Runtime Workspace
 
-This directory is located at `/media/yugengliu/DATA2/CYPEDock/workspace` and
-separates user inputs from generated run artifacts.
+The `workspace/` directory in the repository root separates user inputs from
+generated run artifacts.
 
 ## Input locations
 
