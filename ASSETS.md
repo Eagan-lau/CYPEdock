@@ -1,12 +1,27 @@
 # External Scientific Assets
 
 The CYPEdock source repository excludes two large scientific asset groups from
-Git history. Both archives are distributed through the project data deposit.
+Git history. Both archives are distributed through the public Zenodo archive
+cited in the article's Data Availability statement.
 
 ## Download
 
-- Baidu Netdisk: <https://pan.baidu.com/s/17dh949GLClk_QC1WUDejkw?pwd=7qnp>
+### Preferred source: Zenodo
+
+[DOI: 10.5281/zenodo.23439146](https://doi.org/10.5281/zenodo.23439146).
+
+Both installation archives are available in this public record:
+
+- [CYP450_foldseek_db.tar.xz](https://zenodo.org/api/records/23439146/files/CYP450_foldseek_db.tar.xz/content)
+- [P450model.tar.xz](https://zenodo.org/api/records/23439146/files/P450model.tar.xz/content)
+
+### Backup mirror: Baidu Netdisk
+
+- [Baidu Netdisk](https://pan.baidu.com/s/17dh949GLClk_QC1WUDejkw?pwd=7qnp)
 - Extraction code: `7qnp`
+
+Use this mirror if the preferred source is unavailable. The archive names,
+expected sizes, and SHA-256 checksums below apply to either download source.
 
 Download the following archives:
 
