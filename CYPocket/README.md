@@ -66,14 +66,16 @@ The historical checkpoint filenames contain `distilbert`, but checkpoint-key and
 - TensorFlow 2.6.2, Keras 2.6.0, and MDTraj 1.9.7 for PocketMiner feature extraction.
 - CPU execution is recommended for PocketMiner. The classifier may run on CPU or CUDA.
 
-On the current workstation, the unqualified `python` command may resolve to the Python 2.7 interpreter bundled with ADFRsuite. Activate the intended Conda environment or use an explicit Python 3.9 executable.
+If ADFRsuite is on your `PATH`, the unqualified `python` command may resolve to its bundled Python 2.7 interpreter. Activate the intended Conda environment or use an explicit Python 3.9 executable.
 
 ### 3.2 Single-Environment Installation
 
-A combined environment is the simplest option for end-to-end inference:
+A combined environment is the simplest option for end-to-end inference.
+Replace `/path/to/CYPEdock` with your repository's absolute path in all
+examples below:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 conda create -n cypocket-inference -c conda-forge \
   python=3.9.9 pip=23.2.1 setuptools=68.0.0 wheel=0.41.2 -y
@@ -90,7 +92,7 @@ python -m pip install -e . --no-deps
 Separate environments provide stricter dependency and device isolation:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 conda create -n cypocket-features -c conda-forge \
   python=3.9.9 pip=23.2.1 setuptools=68.0.0 wheel=0.41.2 -y
@@ -109,7 +111,7 @@ The prebuilt code-only wheel may be installed instead of the editable source pac
 
 ```bash
 python -m pip install --no-deps \
-  /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket/release/cypocket-0.1.0-py3-none-any.whl
+  /path/to/CYPEdock/CYPocket/p450pocket/release/cypocket-0.1.0-py3-none-any.whl
 ```
 
 ## 4. PocketMiner Requirement
@@ -137,7 +139,7 @@ The PocketMiner command-line argument is a checkpoint prefix. Pass `/path/to/P45
 Source execution automatically discovers the sibling `P450model/` directory. After wheel installation, set the model directory explicitly:
 
 ```bash
-export P450_MODEL_DIR=/media/yugengliu/DATA2/CYPEDock/CYPocket/P450model
+export P450_MODEL_DIR=/path/to/CYPEdock/CYPocket/P450model
 ```
 
 Individual artifacts may also be selected with:
@@ -165,7 +167,7 @@ For multi-chain structures, use `--chains A`. For modified residues, repeat `--m
 ### 6.2 Minimal Command
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 python predict_pdb.py \
   --protein /path/to/protein.pdb \
@@ -223,7 +225,7 @@ For a sample named `protein`, the output directory contains:
 TensorFlow feature extraction can be skipped when a compatible array with shape `[L, 100]` is already available:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 python predict.py \
   --features /path/to/sample-tokens.npy \
@@ -264,7 +266,7 @@ train/pocket/ABC_pocket.pdb
 Generate features, labels, residue maps, and an auditable manifest:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 CUDA_VISIBLE_DEVICES=-1 python prepare_dataset.py \
   --dataset-root /path/to/raw_dataset \
@@ -303,7 +305,7 @@ python prepare_dataset.py \
 Initialize a new fine-tuning run from the historical best checkpoint:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 python train.py \
   --manifest /path/to/prepared_dataset/manifest.jsonl \
@@ -392,7 +394,7 @@ Inference and fine-tuning from an existing P450 checkpoint do not require a sepa
 Evaluate a frozen labeled split with:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 
 python evaluate.py \
   --manifest /path/to/prepared_dataset/manifest.jsonl \
@@ -411,26 +413,28 @@ CYPEdock invokes CYPocket with the following configuration structure:
 ```yaml
 cypocket:
   python: /path/to/cypocket-env/bin/python
-  root: /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+  root: /path/to/CYPEdock/CYPocket/p450pocket
   feature_python: /path/to/cypocket-features/bin/python
   classifier_python: /path/to/cypocket-classifier/bin/python
-  pocketminer_checkpoint: /media/yugengliu/DATA2/CYPEDock/CYPocket/P450model/pocketminer
-  classifier_checkpoint: /media/yugengliu/DATA2/CYPEDock/CYPocket/P450model/best_protein_distilbert_classifier.pth
+  pocketminer_checkpoint: /path/to/CYPEdock/CYPocket/P450model/pocketminer
+  classifier_checkpoint: /path/to/CYPEdock/CYPocket/P450model/best_protein_distilbert_classifier.pth
   device: cpu
 ```
 
-The workstation configuration is located at:
+An example configuration is provided at:
 
 ```text
-/media/yugengliu/DATA2/CYPEDock/CYPEDock/configs/workstation.yaml
+CYPEDock/configs/workstation.yaml
 ```
+
+Set its tool, library, and model paths for your own installation before use.
 
 CYPEdock provides CYPocket with a protein-only PDB file. Heme and other hetero residues are excluded from the model input because CYPocket predicts protein pocket residues only.
 
 Check the source command entry points with:
 
 ```bash
-cd /media/yugengliu/DATA2/CYPEDock/CYPocket/p450pocket
+cd /path/to/CYPEdock/CYPocket/p450pocket
 python predict_pdb.py --help
 python train.py --help
 ```
