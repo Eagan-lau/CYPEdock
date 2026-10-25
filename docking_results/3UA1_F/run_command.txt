@@ -1,0 +1,1 @@
+vina --receptor ../input_data/3UA1_F/receptor_input.pdbqt --ligand ../input_data/3UA1_F/ligand_input.pdbqt --out redocked_poses.pdbqt --exhaustiveness 32 --num_modes 10 --energy_range 10 --min_rmsd 1.0 --cpu 1 --seed 20261015 --center_x 0.9851656356620353 --size_x 25 --center_y -1.4532750848493663 --size_y 25 --center_z -3.7918758125624095 --size_z 25
