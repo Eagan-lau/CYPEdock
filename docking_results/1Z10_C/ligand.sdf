@@ -1,0 +1,56 @@
+1Z10_C_selected_docking_pose
+     RDKit          3D
+
+ 11 12  0  0  0  0  0  0  0  0999 V2000
+    5.2990   -6.6270   -1.9780 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3860   -5.6480   -1.8010 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2180   -4.3410   -2.0240 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9200   -3.8510   -2.4580 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6820   -2.4970   -2.7060 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4150   -2.0750   -3.1220 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3830   -3.0000   -3.2900 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6120   -4.3530   -3.0430 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8780   -4.7610   -2.6300 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4910   -7.8180   -1.7630 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0680   -6.1360   -2.3920 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1 10  2  0
+  1 11  1  0
+  2  3  2  0
+  3  4  1  0
+  4  5  1  0
+  4  9  2  0
+  5  6  2  0
+  6  7  1  0
+  7  8  2  0
+  8  9  1  0
+  9 11  1  0
+M  END
+>  <CELL_ID>  (1) 
+1Z10_C
+
+>  <SOURCE_POSE_ID>  (1) 
+1Z10_C_1Z10_predicted_b2_r1/mode_5
+
+>  <VINA_SEED>  (1) 
+20260923
+
+>  <SOURCE_MODE>  (1) 
+5
+
+>  <ATOM_NAMES>  (1) 
+C1,C2,C3,C4,C5,C6,C7,C8,C9,O1,O2
+
+>  <INPUT_ISOMERIC_SMILES>  (1) 
+O=c1ccc2ccccc2o1
+
+>  <COORDINATE_FRAME>  (1) 
+Original docking receptor frame; identical to ligand.pdb; no ligand fitting or minimization
+
+>  <HYDROGEN_POLICY>  (1) 
+Heavy atoms only, matching the selected PDB; original graph and formal charges retained
+
+>  <STEREOCHEMISTRY_POLICY>  (1) 
+Input chemical graph annotations retained; pose coordinates unmodified; this is a format export, not a new chemical QA pass
+
+$$$$
