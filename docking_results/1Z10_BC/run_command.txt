@@ -1,0 +1,1 @@
+vina --receptor ../input_data/1Z10_BC/receptor_input.pdbqt --ligand ../input_data/1Z10_BC/ligand_input.pdbqt --out redocked_poses.pdbqt --exhaustiveness 8 --num_modes 10 --cpu 1 --seed 20260925 --center_x 1.547 --size_x 87.844 --center_y -4.7345 --size_y 80.969 --center_z -1.281 --size_z 82.062
