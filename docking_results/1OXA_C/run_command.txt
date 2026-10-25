@@ -1,0 +1,1 @@
+vina --receptor ../input_data/1OXA_C/receptor_input.pdbqt --ligand ../input_data/1OXA_C/ligand_input.pdbqt --out redocked_poses.pdbqt --exhaustiveness 8 --num_modes 10 --cpu 1 --seed 20260940 --center_x 8.921180047392845 --size_x 25 --center_y -1.7836999809741974 --size_y 25 --center_z 4.727240000069141 --size_z 25
