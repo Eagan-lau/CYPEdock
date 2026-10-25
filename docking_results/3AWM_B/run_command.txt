@@ -1,0 +1,1 @@
+vina --receptor ../input_data/3AWM_B/receptor_input.pdbqt --ligand ../input_data/3AWM_B/ligand_input.pdbqt --out redocked_poses.pdbqt --exhaustiveness 8 --num_modes 10 --cpu 1 --seed 20260930 --center_x 39.746299961635046 --size_x 25 --center_y 0.46298573655741554 --size_y 25 --center_z 18.29897144521986 --size_z 25
